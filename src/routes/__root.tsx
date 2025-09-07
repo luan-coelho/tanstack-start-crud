@@ -6,7 +6,6 @@ import TanStackQueryDevtools from '../integrations/tanstack-query/devtools';
 
 import appCss from '../styles.css?url';
 
-import { AppLayout } from '@/components/layout/app-layout';
 import { buttonVariants } from '@/components/ui/button';
 import { ThemeProvider } from '@/providers/theme-provider';
 import type { QueryClient } from '@tanstack/react-query';
@@ -58,22 +57,20 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <AppLayout>
-          {children}
-          <TanstackDevtools
-            config={{
-              position: 'bottom-left',
-            }}
-            plugins={[
-              {
-                name: 'Tanstack Router',
-                render: <TanStackRouterDevtoolsPanel />,
-              },
-              TanStackQueryDevtools,
-            ]}
-          />
-          <Scripts />
-        </AppLayout>
+        {children}
+        <TanstackDevtools
+          config={{
+            position: 'bottom-left',
+          }}
+          plugins={[
+            {
+              name: 'Tanstack Router',
+              render: <TanStackRouterDevtoolsPanel />,
+            },
+            TanStackQueryDevtools,
+          ]}
+        />
+        <Scripts />
       </body>
     </html>
   );

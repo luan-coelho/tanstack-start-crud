@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import NeonIcon from "@/neon.svg";
-import { CheckSquare, House, Settings, Users } from "lucide-react";
+import NeonIcon from '@/neon.svg';
+import { CheckSquare, House, Settings, Users } from 'lucide-react';
 
 import {
   Sidebar,
@@ -15,20 +15,21 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar';
 
-import { useActivePath } from "@/hooks/use-active-path";
+import { useActivePath } from '@/hooks/use-active-path';
+import { Link } from '@tanstack/react-router';
 
 // Menu items principais
 const items = [
   {
-    title: "Home",
-    url: "/",
+    title: 'Home',
+    url: '/',
     icon: House,
   },
   {
-    title: "Tarefas",
-    url: "/todos",
+    title: 'Tarefas',
+    url: '/todos',
     icon: CheckSquare,
   },
 ];
@@ -36,8 +37,8 @@ const items = [
 // Menu items de usuários (administração)
 const userManagementItems = [
   {
-    title: "Usuários",
-    url: "#",
+    title: 'Usuários',
+    url: '#',
     icon: Users,
   },
 ];
@@ -45,8 +46,8 @@ const userManagementItems = [
 // Menu items de configuração
 const configItems = [
   {
-    title: "Configurações",
-    url: "#",
+    title: 'Configurações',
+    url: '#',
     icon: Settings,
   },
 ];
@@ -60,16 +61,10 @@ export function AppSidebar() {
       <Sidebar className="bg-sidebar" variant="inset">
         <SidebarHeader>
           <div className="flex items-center gap-2 px-4 py-2">
-            <img
-              className="size-10 rounded-xl"
-              src={NeonIcon}
-              alt="Ícone Estímulos"
-            />
+            <img className="size-10 rounded-xl" src={NeonIcon} alt="Ícone Estímulos" />
             <div className="grid flex-1 text-left text-sm leading-tight">
               <span className="truncate font-semibold">Tanstack Start</span>
-              <span className="text-muted-foreground truncate text-xs">
-                Development
-              </span>
+              <span className="text-muted-foreground truncate text-xs">Development</span>
             </div>
           </div>
         </SidebarHeader>
@@ -79,13 +74,13 @@ export function AppSidebar() {
             <SidebarGroupLabel>Navegação Principal</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {items.map((item) => (
+                {items.map(item => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild isActive={isActive(item.url)}>
-                      <a href={item.url}>
+                      <Link to={item.url}>
                         <item.icon />
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -97,13 +92,13 @@ export function AppSidebar() {
             <SidebarGroupLabel>Administração</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {userManagementItems.map((item) => (
+                {userManagementItems.map(item => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild isActive={isActive(item.url)}>
-                      <a href={item.url}>
+                      <Link to={item.url}>
                         <item.icon />
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
@@ -115,13 +110,13 @@ export function AppSidebar() {
             <SidebarGroupLabel>Sistema</SidebarGroupLabel>
             <SidebarGroupContent>
               <SidebarMenu>
-                {configItems.map((item) => (
+                {configItems.map(item => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild isActive={isActive(item.url)}>
-                      <a href={item.url}>
+                      <Link to={item.url}>
                         <item.icon />
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
