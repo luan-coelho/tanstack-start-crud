@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { ModeToggle } from "@/components/layout/theme-toggle";
-import { Button } from "@/components/ui/button";
-import { SidebarTrigger } from "@/components/ui/sidebar";
+import { ModeToggle } from '@/components/layout/theme-toggle';
+import { Button } from '@/components/ui/button';
+import { SidebarTrigger } from '@/components/ui/sidebar';
 
 export function AppHeader() {
   return (

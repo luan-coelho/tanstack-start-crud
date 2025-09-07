@@ -1,4 +1,4 @@
-import { Code2 } from 'lucide-react'
+import { Code2 } from "lucide-react";
 
 export function AppFooter() {
   return (
@@ -6,12 +6,13 @@ export function AppFooter() {
       <div className="text-muted-foreground flex items-center justify-between text-sm">
         <div className="flex items-center gap-4">
           <span className="flex items-center gap-1">
-            © 2025 - Desenvolvido por{' '}
+            © 2025 - Desenvolvido por{" "}
             <a
               href="https://github.com/luan-coelho"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary inline-flex items-center gap-1 hover:underline">
+              className="text-primary inline-flex items-center gap-1 hover:underline"
+            >
               <Code2 className="h-3 w-3" />
               Luan Coelho
             </a>
@@ -21,5 +22,5 @@ export function AppFooter() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

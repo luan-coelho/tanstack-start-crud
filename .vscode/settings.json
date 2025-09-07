@@ -18,7 +18,7 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome"
   },
   "[json]": {
     "editor.defaultFormatter": "biomejs.biome"
@@ -31,5 +31,11 @@
   },
   "editor.codeActionsOnSave": {
     "source.organizeImports.biome": "explicit"
+  },
+  "chat.mcp.autostart": "newAndOutdated",
+  "chat.mcp.serverSampling": {
+    "sheet-ledger/.vscode/mcp.json: memory": {
+      "allowedModels": ["copilot/claude-sonnet-4"]
+    }
   }
 }

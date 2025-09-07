@@ -1,6 +1,6 @@
 "use client";
 
-import NeonIcon from "@/public/neon.svg";
+import NeonIcon from "@/neon.svg";
 import { CheckSquare, House, Settings, Users } from "lucide-react";
 
 import {

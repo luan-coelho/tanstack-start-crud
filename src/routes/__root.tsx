@@ -1,20 +1,15 @@
-import { TanstackDevtools } from "@tanstack/react-devtools";
-import {
-  HeadContent,
-  Outlet,
-  Scripts,
-  createRootRouteWithContext,
-} from "@tanstack/react-router";
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
+import { TanstackDevtools } from '@tanstack/react-devtools';
+import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router';
+import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 
-import TanStackQueryDevtools from "../integrations/tanstack-query/devtools";
+import TanStackQueryDevtools from '../integrations/tanstack-query/devtools';
 
-import appCss from "../styles.css?url";
+import appCss from '../styles.css?url';
 
-import { AppLayout } from "@/components/layout/app-layout";
-import { getThemeServerFn } from "@/lib/theme";
-import { ThemeProvider, useTheme } from "@/providers/theme-provider";
-import type { QueryClient } from "@tanstack/react-query";
+import { AppLayout } from '@/components/layout/app-layout';
+import { buttonVariants } from '@/components/ui/button';
+import { ThemeProvider } from '@/providers/theme-provider';
+import type { QueryClient } from '@tanstack/react-query';
 
 interface MyRouterContext {
   queryClient: QueryClient;
@@ -24,32 +19,31 @@ export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
     meta: [
       {
-        charSet: "utf-8",
+        charSet: 'utf-8',
       },
       {
-        name: "viewport",
-        content: "width=device-width, initial-scale=1",
+        name: 'viewport',
+        content: 'width=device-width, initial-scale=1',
       },
       {
-        title: "TanStack Start Starter",
+        title: 'TanStack Start Starter',
       },
     ],
     links: [
       {
-        rel: "stylesheet",
+        rel: 'stylesheet',
         href: appCss,
       },
     ],
   }),
 
   shellComponent: RootComponent,
-  loader: () => getThemeServerFn(),
+  notFoundComponent: NotFoundComponent,
 });
 
 function RootComponent() {
-  const data = Route.useLoaderData();
   return (
-    <ThemeProvider theme={data}>
+    <ThemeProvider>
       <RootDocument>
         <Outlet />
       </RootDocument>
@@ -58,10 +52,8 @@ function RootComponent() {
 }
 
 function RootDocument({ children }: { children: React.ReactNode }) {
-  const { theme } = useTheme();
-
   return (
-    <html lang="en" className={theme}>
+    <html lang="pt-BR">
       <head>
         <HeadContent />
       </head>
@@ -70,11 +62,11 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           {children}
           <TanstackDevtools
             config={{
-              position: "bottom-left",
+              position: 'bottom-left',
             }}
             plugins={[
               {
-                name: "Tanstack Router",
+                name: 'Tanstack Router',
                 render: <TanStackRouterDevtoolsPanel />,
               },
               TanStackQueryDevtools,
@@ -84,5 +76,17 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         </AppLayout>
       </body>
     </html>
+  );
+}
+
+function NotFoundComponent() {
+  return (
+    <div className="flex h-full flex-col items-center justify-center gap-4">
+      <h1 className="text-2xl font-bold">404 - Página Não Encontrada</h1>
+      <p className="text-center text-muted-foreground">A página que você está procurando não existe ou foi movida.</p>
+      <a href="/" className={buttonVariants({ variant: 'default' })}>
+        Voltar para a Página Inicial
+      </a>
+    </div>
   );
 }

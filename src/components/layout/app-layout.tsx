@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { AppFooter } from '@/components/layout/app-footer'
-import { AppHeader } from '@/components/layout/app-header'
-import { AppSidebar } from '@/components/layout/app-sidebar'
-import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar'
+import { AppFooter } from '@/components/layout/app-footer';
+import { AppHeader } from '@/components/layout/app-header';
+import { AppSidebar } from '@/components/layout/app-sidebar';
+import { SidebarInset, SidebarProvider } from '@/components/ui/sidebar';
 
 interface AppLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function AppLayout({ children }: AppLayoutProps) {
@@ -23,5 +23,5 @@ export function AppLayout({ children }: AppLayoutProps) {
         <AppFooter />
       </SidebarInset>
     </SidebarProvider>
-  )
+  );
 }
