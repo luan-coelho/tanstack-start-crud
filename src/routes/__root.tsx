@@ -1,5 +1,5 @@
 import { TanstackDevtools } from '@tanstack/react-devtools';
-import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router';
+import { HeadContent, Link, Outlet, Scripts, createRootRouteWithContext } from '@tanstack/react-router';
 import { TanStackRouterDevtoolsPanel } from '@tanstack/react-router-devtools';
 
 import TanStackQueryDevtools from '../integrations/tanstack-query/devtools';
@@ -84,9 +84,9 @@ function NotFoundComponent() {
     <div className="flex h-full flex-col items-center justify-center gap-4">
       <h1 className="text-2xl font-bold">404 - Página Não Encontrada</h1>
       <p className="text-center text-muted-foreground">A página que você está procurando não existe ou foi movida.</p>
-      <a href="/" className={buttonVariants({ variant: 'default' })}>
+      <Link to="/" className={buttonVariants({ variant: 'default' })}>
         Voltar para a Página Inicial
-      </a>
+      </Link>
     </div>
   );
 }
